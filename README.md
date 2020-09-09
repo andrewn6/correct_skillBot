@@ -1,7 +1,7 @@
 # Flutter Community Discord Bot
 
-## To use in your own server for testing or other purposes please fork the repo and clone
-## so that later in the future you can create a Pull Request
+## To use in your own server for testing or other purposes please fork the repo and clone so that later in the future you can create a Pull Request
+
 
 ### To run this on your system you need to set the following env variables
 
