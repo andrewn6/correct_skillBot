@@ -22,4 +22,4 @@
 ##### setx GUILD_ID "Server id"
 ##### setx TENOR_API_KEY "TENOR API KEY"
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Shubhaankar-sharma/correct_skillBot
