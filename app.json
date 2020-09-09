@@ -1,7 +1,7 @@
 {
   "name": "Correct Skill Bot",
   "description": "A multitasking personal bot",
-  "repository": "https://github.com/Shubhaankar-sharma/correct_skillBot/",
+  "repository": "https://github.com/Shubhaankar-sharma/correct_skillBot",
   "keywords": ["python","discord"],
   "env": {
     "BOT_TOKEN":{"description": "Discord Bot Token"},
