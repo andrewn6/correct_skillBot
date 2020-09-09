@@ -1,0 +1,15 @@
+{
+  "name": "Correct Skill Bot",
+  "description": "A multitasking personal bot",
+  "repository": "https://github.com/Shubhaankar-sharma/correct_skillBot/",
+  "keywords": ["python","discord"],
+  "env": {
+    "BOT_TOKEN":{"description": "Discord Bot Token"},
+    "BOT_CHANNEL ":{"description": "Channel ID in which bot will post logs"},
+    "OWNER_ID ":{"description": "server owner ID"},
+    "PREFIX ":{"description": "PREFIX"},
+    "GUILD_ID ":{"description": "Server id"},
+    "TENOR_API_KEY":{"description": "TENOR API KEY"},  
+      },
+   "addons":[{"plan": "heroku-postgresql"}]
+}
