@@ -33,4 +33,5 @@
 #### There are some issues open please feel free to make a pr
 ##### To contribute fork the repo and make the changes then make a pr
 
+### Join our flutter server where the bot is implemented
 [![JOINSERVER](https://discord.com/api/guilds/742283065694617611/widget.png?style=banner4)](https://discord.gg/f5HjX9t)
