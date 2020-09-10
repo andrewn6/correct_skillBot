@@ -2,7 +2,7 @@
 
 ### This is not completed yet
 
-## To use in your own server for testing or other purposes please fork the repo and clone it
+### To use in your own server for testing or other purposes please fork the repo and clone it
 
 
 ### To run this on your system you need to set the following env variables
