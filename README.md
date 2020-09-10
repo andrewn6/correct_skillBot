@@ -32,3 +32,4 @@
 
 #### There are some issues open please feel free to make a pr
 ##### To contribute fork the repo and make the changes then make a pr
+![Discord Banner 4](https://discordapp.com/api/guilds/742283065694617611/widget.png?style=banner4)
