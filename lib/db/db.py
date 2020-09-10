@@ -6,7 +6,7 @@ from apscheduler.triggers.cron import CronTrigger
 
 BUILD_PATH = "./data/db/build.sql"
 #TODO : get url from os env
-url = urlparse.urlparse(os.environ['DATABASE_URI'])
+url = urlparse.urlparse(os.environ['DATABASE_URL'])
 dbname = url.path[1:]
 user = url.username
 password = url.password
