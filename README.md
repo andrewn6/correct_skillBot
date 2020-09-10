@@ -32,4 +32,6 @@
 
 #### There are some issues open please feel free to make a pr
 ##### To contribute fork the repo and make the changes then make a pr
-![Discord Banner 4](https://discordapp.com/api/guilds/742283065694617611/widget.png?style=banner4)
+<figure>
+<iframe src="https://discordapp.com/widget?id=742283065694617611&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-    popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+</figure>
