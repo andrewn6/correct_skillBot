@@ -63,6 +63,7 @@ class Help(Cog):
         if cmd is None:
             menu = MenuPages(source=HelpMenu(ctx, list(self.bot.commands)),
                              #delete_message_after=True,
+                             clear_reactions_after=True,
                              timeout=60.0)
             await menu.start(ctx) 
             
