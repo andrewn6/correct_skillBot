@@ -1,15 +1,20 @@
 aiohttp==3.6.2
 APScheduler==3.6.3
 astroid==2.4.2
+astunparse==1.6.3
 async-timeout==3.0.1
 attrs==20.2.0
+braceexpand==0.1.5
 certifi==2020.6.20
 chardet==3.0.4
 colorama==0.4.3
 discord-ext-menus @ git+https://github.com/Rapptz/discord-ext-menus@84caae8038d0d3adc860957ccef05baeec2e2dd8
 discord.py==1.4.1
+humanize==2.6.0
 idna==2.10
+import-expression==1.1.4
 isort==5.5.1
+jishaku==1.19.1.200
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
 multidict==4.7.6

@@ -13,7 +13,7 @@ class Fun(Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @command(name="slap", aliases=["hit"])
+    @command(name="slap", aliases=["hit"], brief="Returns a random Gif with the reason for you slapping")
     @cooldown(1, 10, BucketType.user)
     #fun command to slap someone like pancake
     async def slap_member(self, ctx, member: Member, *, reason: Optional[str] = "for no reason"):
@@ -43,7 +43,7 @@ class Fun(Cog):
         if isinstance(exc, BadArgument):
             await ctx.send("I can't find that member")
 
-    @command(name="say", aliases=["echo"])
+    @command(name="say", aliases=["echo"], brief="Repeats what you sent and deletes your message")
     #repeates whatever you want to say
     async def echo(self, ctx, *, message: str):
         await ctx.message.delete()

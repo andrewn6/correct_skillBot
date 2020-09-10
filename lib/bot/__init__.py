@@ -4,7 +4,8 @@ from datetime import datetime
 from discord.ext.commands import Bot as BotBase
 import discord
 from glob import glob
-from discord.ext.commands import (CommandNotFound, BadArgument, MissingRequiredArgument, CommandOnCooldown)
+#from discord.ext.commands import (CommandNotFound, BadArgument, MissingRequiredArgument, CommandOnCooldown)
+from discord.ext.commands.errors import *
 from ..db import db
 import os 
 from apscheduler.triggers.cron import CronTrigger
@@ -13,7 +14,10 @@ from apscheduler.triggers.cron import CronTrigger
 PREFIX = os.environ["PREFIX"] #"c."
 OWNER_IDS = [int(os.environ["OWNER_ID"])] #735376244656308274
 #COGS = [path.split("\\")[-1][:-3] for path in glob("./lib/cogs/*.py")] This is not working ISSUE HERE
-COGS = ['fun']
+os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
+os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
+os.environ["JISHAKU_HIDE"] = "True"
+COGS = ['jishaku','fun','help']
 IGNORE_EXCEPTIONS = (CommandNotFound, BadArgument)
 print(COGS)
 
@@ -42,7 +46,10 @@ class Bot(BotBase):
     
     def setup(self):
         for cog in COGS:
-            self.load_extension(f'lib.cogs.{cog}')
+            if cog == 'jishaku':
+                self.load_extension('jishaku')
+            else:
+                self.load_extension(f'lib.cogs.{cog}')
             print(f'{cog} cog loaded')
         print("setup complete")
 
@@ -78,6 +85,8 @@ class Bot(BotBase):
         raise
 
     async def on_command_error(self,ctx,exc):
+        error = getattr(exc, 'original', exc)
+
         if isinstance(exc,CommandNotFound):
             await ctx.send(embed = discord.Embed(title = "Wrong Command", colour = discord.Colour.red()))
         elif isinstance(exc, BadArgument):
@@ -86,6 +95,8 @@ class Bot(BotBase):
             await ctx.send(embed = discord.Embed(title = f"That command is on {str(exc.cooldown.type).split('.')[-1]} cooldown. Try again in {exc.retry_after:,.2f}", colour = discord.Colour.red()))
         elif isinstance(exc, MissingRequiredArgument):
             await ctx.send("One or two required arguments are missing")
+        elif isinstance(error, CheckFailure):
+            return
         else:
             raise exc.original
     
