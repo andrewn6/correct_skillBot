@@ -1,5 +1,7 @@
 # Correct Skill Discord Bot
 
+### This is not completed yet
+
 ## To use in your own server for testing or other purposes please fork the repo and clone so that later in the future you can create a Pull Request
 
 
