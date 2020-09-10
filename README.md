@@ -32,6 +32,8 @@
 
 #### There are some issues open please feel free to make a pr
 ##### To contribute fork the repo and make the changes then make a pr
+
 <figure>
-<iframe src="https://discordapp.com/widget?id=742283065694617611&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-    popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+<iframe src="https://e.widgetbot.io/channels/299881420891881473/355719584830980096" height="600" width="800"></iframe>
+
 </figure>
