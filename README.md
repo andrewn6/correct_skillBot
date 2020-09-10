@@ -1,4 +1,4 @@
-# Flutter Community Discord Bot
+# Correct Skill Discord Bot
 
 ## To use in your own server for testing or other purposes please fork the repo and clone so that later in the future you can create a Pull Request
 
@@ -22,4 +22,11 @@
 ##### setx GUILD_ID "Server id"
 ##### setx TENOR_API_KEY "TENOR API KEY"
 
+### To get your Tenor key go to (https://tenor.com/developer/dashboard)
+
+## Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Shubhaankar-sharma/correct_skillBot)
+#### After deploying go to manage app and turn on the python launcher worker dyno
+
+#### There are some issues open please feel free to make a pr
+##### To contribute fork the repo and make the changes then make a pr
