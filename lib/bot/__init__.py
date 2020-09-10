@@ -12,7 +12,8 @@ from apscheduler.triggers.cron import CronTrigger
 
 PREFIX = os.environ["PREFIX"] #"c."
 OWNER_IDS = [int(os.environ["OWNER_ID"])] #735376244656308274
-COGS = [path.split("\\")[-1][:-3] for path in glob("./lib/cogs/*.py")]
+#COGS = [path.split("\\")[-1][:-3] for path in glob("./lib/cogs/*.py")] This is not working ISSUE HERE
+COGS = ['fun']
 IGNORE_EXCEPTIONS = (CommandNotFound, BadArgument)
 print(COGS)
 
