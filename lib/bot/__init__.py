@@ -17,7 +17,7 @@ OWNER_IDS = [int(os.environ["OWNER_ID"])] #735376244656308274
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
 os.environ["JISHAKU_HIDE"] = "True"
-COGS = ['jishaku','fun','help']
+COGS = ['fun','help']
 IGNORE_EXCEPTIONS = (CommandNotFound, BadArgument)
 print(COGS)
 
