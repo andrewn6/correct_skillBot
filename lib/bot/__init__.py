@@ -24,7 +24,10 @@ print(COGS)
 class Ready(object):
     def __init__(self):
         for cog in COGS:
-            setattr(self, cog, False)
+            if cog == "jishaku":
+                setattr(self, cog, True)
+            else:
+                setattr(self, cog, False)
     
     def ready_up(self, cog):
         setattr(self, cog, True)
