@@ -91,15 +91,17 @@ class Bot(BotBase):
         error = getattr(exc, 'original', exc)
 
         if isinstance(exc,CommandNotFound):
-            await ctx.send(embed = discord.Embed(title = "Wrong Command", colour = discord.Colour.red()))
+            await ctx.send(embed = discord.Embed(title="Wrong Command", colour=discord.Colour.red()))
         elif isinstance(exc, BadArgument):
             pass
         elif isinstance(exc,CommandOnCooldown):
-            await ctx.send(embed = discord.Embed(title = f"That command is on {str(exc.cooldown.type).split('.')[-1]} cooldown. Try again in {exc.retry_after:,.2f}", colour = discord.Colour.red()))
+            await ctx.send(embed = discord.Embed(title=f"That command is on {str(exc.cooldown.type).split('.')[-1]} cooldown. Try again in {exc.retry_after:,.2f}", colour = discord.Colour.red()))
         elif isinstance(exc, MissingRequiredArgument):
-            await ctx.send("One or two required arguments are missing")
+            await ctx.send(embed=discord.Embed(title="One or two required arguments are missing", colour=discord.Colour.red()))
         elif isinstance(error, CheckFailure):
             return
+        elif isinstance(exc, TooManyArguments):
+            await ctx.send(embed=discord.Embed(title="This command does not have this many arguments", colour=discord.Colour.red()))
         else:
             raise exc.original
     
