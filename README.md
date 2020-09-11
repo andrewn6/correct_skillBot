@@ -31,7 +31,7 @@
 #### After deploying go to manage app and turn on the python launcher worker dyno
 
 #### There are some issues open please feel free to make a pr
-## To contribute please see CONTRIBUTING.md there is some shell code there that can help you out and then fork the repo and make the changes then make a pr 
+#### To contribute please see CONTRIBUTING.md there is some shell code there that can help you out and then fork the repo and make the changes then make a pr 
 
 ### Join our flutter server where the bot is implemented
 [![JOINSERVER](https://discord.com/api/guilds/742283065694617611/widget.png?style=banner4)](https://discord.gg/f5HjX9t)
