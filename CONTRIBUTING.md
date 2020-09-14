@@ -36,7 +36,7 @@ class ClassName(Cog):
     async def on_ready(self):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("filename")   #for example if the file name is fun.py then the cog name would be fun please insert the cog name here that is the file name without the extension
-            print("filename cog ready")
+            
 
 def setup(bot):
     bot.add_cog(ClassName(bot))

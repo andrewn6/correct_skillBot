@@ -54,7 +54,7 @@ class Fun(Cog):
     async def on_ready(self):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("fun")
-        print("fun cog ready")
+        #print("fun cog ready")
     
 
 def setup(bot):

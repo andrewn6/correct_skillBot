@@ -34,7 +34,7 @@ def build():
 		scriptexec(BUILD_PATH)
 
 def commit():    
-    print("committing .... to db")
+    # debug msg print("committing .... to db")
     cxn.commit()
 
 def autosave(sched):

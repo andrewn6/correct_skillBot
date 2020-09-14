@@ -10,7 +10,7 @@ class Youtube(Cog):
     async def on_ready(self):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("youtube")
-            print("youtube cog ready")
+            #print("youtube cog ready")
 
 def setup(bot):
     bot.add_cog(Youtube(bot))

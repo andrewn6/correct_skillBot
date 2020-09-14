@@ -11,7 +11,7 @@ class Welcome(Cog):
     async def on_ready(self):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("welcome")   #for example if the file name is fun.py then the cog name would be fun please insert the cog name here that is the file name without the extension
-        print("welcome cog ready")
+        #print("welcome cog ready")
 
     @Cog.listener()
     async def on_member_join(self, member):
