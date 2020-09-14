@@ -6,6 +6,7 @@ import discord
 from glob import glob
 #from discord.ext.commands import (CommandNotFound, BadArgument, MissingRequiredArgument, CommandOnCooldown)
 from discord.ext.commands.errors import *
+from discord.ext.commands import when_mentioned_or
 from ..db import db
 import os 
 from apscheduler.triggers.cron import CronTrigger
@@ -17,9 +18,16 @@ OWNER_IDS = [int(os.environ["OWNER_ID"])] #735376244656308274
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
 os.environ["JISHAKU_HIDE"] = "True"
-COGS = ['jishaku','fun','help']
+COGS = ['jishaku']
+for file in os.listdir('./lib/cogs'):
+    if file.endswith('.py'):
+        COGS.append(file[:-3])
+        
 IGNORE_EXCEPTIONS = (CommandNotFound, BadArgument)
 print(COGS)
+
+def get_prefix(bot, message):
+    return when_mentioned_or(PREFIX)(bot, message)
 
 class Ready(object):
     def __init__(self):
@@ -43,9 +51,8 @@ class Bot(BotBase):
         self.guild = None
         self.cogs_ready = Ready()
         self.scheduler = AsyncIOScheduler()
-
         db.autosave(self.scheduler)
-        super().__init__(command_prefix = PREFIX, owner_ids = OWNER_IDS)
+        super().__init__(command_prefix=get_prefix, owner_ids=OWNER_IDS)
     
     def setup(self):
         for cog in COGS:
@@ -118,11 +125,18 @@ class Bot(BotBase):
                 await sleep(0.5)
             self.ready = True
             await self.stdout.send(embed = embed)
+            await self.change_presence(activity=discord.Game("f.help"))
             print("Bot ready")
         else:
             print("Bot reconnected")
     async def on_message(self, message):
-        if not message.author.bot:
-            await self.process_commands(message)
+        if message.author.bot:
+            print("hi")
+            return
+        if message.channel.id == 753121781987934298:
+            print("workk")
+            await message.add_reaction('👍')
+        await self.process_commands(message)
+
 
 bot = Bot()

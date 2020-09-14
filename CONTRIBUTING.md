@@ -16,27 +16,27 @@ import discord
 
 
 class ClassName(Cog):
-  def __init__(self, bot):
+    def __init__(self, bot):
         self.bot = bot
   
-  #To add commands just do
-  @command(name="name", aliases=["alias"], brief="Please write the description of the command here or nothing will show up in the description of the help")
+    #To add commands just do
+    @command(name="name", aliases=["alias"], brief="Please write the description of the command here or nothing will show up in the description of the help")
     #repeates whatever you want to say
     async def name(self, ctx, *args):
         await ctx.send(f"{message}")
   
-  #Please handle all the command errors here
-  @name.error
-  async def name_error(self, ctx, error): #name is the command name
-    if isinstance(error, ERRORNAME ): #import the error name
-      await ctx.send("error message")
-   
-  @Cog.listener()
-    #when bot is ready this is performed
+    #Please handle all the command errors here
+    @name.error
+    async def name_error(self, ctx, error): #name is the command name
+      if isinstance(error, ERRORNAME ): #import the error name
+        await ctx.send("error message")
+    
+    @Cog.listener()
+      #when bot is ready this is performed
     async def on_ready(self):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("filename")   #for example if the file name is fun.py then the cog name would be fun please insert the cog name here that is the file name without the extension
-        print("filename cog ready")
+            print("filename cog ready")
 
 def setup(bot):
     bot.add_cog(ClassName(bot))
