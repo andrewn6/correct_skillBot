@@ -1,3 +1,4 @@
 .vscode/
 lib/bot/token.0
 lib/bot/.env
+__pycache__
