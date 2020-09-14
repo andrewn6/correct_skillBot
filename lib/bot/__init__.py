@@ -24,7 +24,7 @@ for file in os.listdir('./lib/cogs'):
         COGS.append(file[:-3])
         
 IGNORE_EXCEPTIONS = (CommandNotFound, BadArgument)
-print(COGS)
+#debug message print(COGS)
 
 def get_prefix(bot, message):
     return when_mentioned_or(PREFIX)(bot, message)
@@ -131,10 +131,10 @@ class Bot(BotBase):
             print("Bot reconnected")
     async def on_message(self, message):
         if message.author.bot:
-            print("hi")
+            #debug msg print("hi")
             return
         if message.channel.id == 753121781987934298:
-            print("workk")
+            #debug msg print("workk")
             await message.add_reaction('👍')
         await self.process_commands(message)
 
