@@ -8,7 +8,7 @@ import requests
 import json
 import random
 import discord
-
+from config import *
 class Fun(Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -17,7 +17,7 @@ class Fun(Cog):
     @cooldown(1, 10, BucketType.user)
     #fun command to slap someone like pancake
     async def slap_member(self, ctx, member: Member, *, reason: Optional[str] = "for no reason"):
-        apikey = os.environ["TENOR_API_KEY"]
+        apikey = TENOR_API_KEY #os.environ["TENOR_API_KEY"]
         lmt = 20
         search_term = "slap"
         r = requests.get(

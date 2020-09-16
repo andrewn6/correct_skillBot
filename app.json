@@ -24,7 +24,22 @@
         },
         "TENOR_API_KEY":{
             "description": "TENOR API KEY"
-        } 
+        },
+        "PROJECT_DISPLAY_CHANNEL_ID":{
+            "description": "Channel id of chaanel where people will post projects and the msgs will be reacted with a 👍"
+        },
+        "STAFF_LOGS_CHANNEL_ID":{
+          "description": "Channel id of channel Where all the server logs will be posted for moderation like message edits deletes and bans and kicks...etc"
+        },
+        "WELCOME_CHANNEL_ID":{
+          "description": "Channel id of channel where welcome messages will go"
+        },
+        "SERVER_RULES_MESSAGE_ID":{
+          "description": "Message id of message with server rules which user have to react ✅ to gain access to the server"
+        },
+        "VERIFIED_ROLE_ID":{
+          "description": "Id of verified role which is to be given after user agrees to server rules to gain access to the server"
+        }      
       
     },
     "addons": [

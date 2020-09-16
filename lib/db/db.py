@@ -3,10 +3,11 @@ import psycopg2
 import urllib.parse as urlparse
 import os
 from apscheduler.triggers.cron import CronTrigger
+from config import *
 
 BUILD_PATH = "./data/db/build.sql"
 #TODO : get url from os env
-url = urlparse.urlparse(os.environ['DATABASE_URL'])
+url = urlparse.urlparse(DATABASE_URL) #os.environ['DATABASE_URL']
 dbname = url.path[1:]
 user = url.username
 password = url.password

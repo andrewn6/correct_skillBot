@@ -10,11 +10,10 @@ from discord.ext.commands import when_mentioned_or
 from ..db import db
 import os 
 from apscheduler.triggers.cron import CronTrigger
+from config import * 
+#Config (PREFIX, BOT_TOKEN, BOT_CHANNEL, OWNER_ID, GUILD_ID, SUGGESTION_CHANNEL_ID)
 
-
-PREFIX = os.environ["PREFIX"] #"c."
-OWNER_IDS = [int(os.environ["OWNER_ID"])] #735376244656308274
-#COGS = [path.split("\\")[-1][:-3] for path in glob("./lib/cogs/*.py")] This is not working ISSUE HERE
+OWNER_IDS = [OWNER_ID]
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
 os.environ["JISHAKU_HIDE"] = "True"
@@ -22,12 +21,11 @@ COGS = ['jishaku']
 for file in os.listdir('./lib/cogs'):
     if file.endswith('.py'):
         COGS.append(file[:-3])
-        
 IGNORE_EXCEPTIONS = (CommandNotFound, BadArgument)
-#debug message print(COGS)
 
 def get_prefix(bot, message):
     return when_mentioned_or(PREFIX)(bot, message)
+
 
 class Ready(object):
     def __init__(self):
@@ -65,17 +63,14 @@ class Bot(BotBase):
 
     def run(self, version):
         self.VERSION = version
-        #with open("./lib/bot/token.0","r",encoding="utf-8") as tf:
-            #self.TOKEN = tf.read()
         print("running setup")
         self.setup()
 
-        self.TOKEN = os.environ['BOT_TOKEN']
+        self.TOKEN = BOT_TOKEN
         print("running bot...")
         super().run(self.TOKEN,reconnect=True)
     
     async def print_message(self):
-        #channel = self.get_channel(int(os.environ["BOT_CHANNEL"])) #753138246187352094 
         self.stdout.send(embed = discord.Embed(title = "Good Morning!",colour = discord.Colour.orange()))
 
     async def on_connect(self):
@@ -87,10 +82,8 @@ class Bot(BotBase):
     async def on_error(self, err, *args, **kwargs,):
         if err == "on_command_error":
             await args[0].send("something went wrong")
-        
-        #channel = self.get_channel(int(os.environ["BOT_CHANNEL"])) 
+
         embed = discord.Embed(title = "An error occured", colour = discord.Colour.red(),timestamp = datetime.utcnow())
-        #await channel.send("@Correct_Skill")
         await self.stdout.send(embed = embed)
         raise
 
@@ -114,10 +107,10 @@ class Bot(BotBase):
     
     async def on_ready(self):
         if not self.ready:
-            self.guild = self.get_guild(int(os.environ["GUILD_ID"])) #742283065694617611
+            self.guild = self.get_guild(GUILD_ID)
             self.scheduler.add_job(self.print_message,CronTrigger(day_of_week = 0, hour=12,minute = 0, second=0))
             self.scheduler.start()
-            self.stdout = self.get_channel(int(os.environ["BOT_CHANNEL"]))
+            self.stdout = self.get_channel(BOT_CHANNEL)
             embed = discord.Embed(title = "Bot is Online", colour = discord.Colour.purple(),timestamp = datetime.utcnow())
             embed.set_author(name=self.guild.name,icon_url=self.guild.icon_url)
            
@@ -131,10 +124,8 @@ class Bot(BotBase):
             print("Bot reconnected")
     async def on_message(self, message):
         if message.author.bot:
-            #debug msg print("hi")
             return
-        if message.channel.id == 753121781987934298:
-            #debug msg print("workk")
+        if message.channel.id == PROJECT_DISPLAY_CHANNEL_ID:
             await message.add_reaction('👍')
         await self.process_commands(message)
 

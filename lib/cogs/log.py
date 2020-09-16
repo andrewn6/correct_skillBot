@@ -2,6 +2,8 @@ from discord.ext.commands import Cog, command
 import discord
 from discord import Forbidden
 from datetime import datetime
+from config import STAFF_LOGS_CHANNEL_ID
+
 class Log(Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -10,7 +12,7 @@ class Log(Cog):
     async def on_ready(self):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("log")
-            self.log_channel = self.bot.get_channel(753121567755599892)
+            self.log_channel = self.bot.get_channel(STAFF_LOGS_CHANNEL_ID) #753121567755599892
         #print("log cog ready")
 
     @Cog.listener()
@@ -55,10 +57,10 @@ class Log(Cog):
         if not after.author.bot:
             if before.content != after.content:
                 embed = discord.Embed(title="Message Update",
-                                      description="Message changed",
+                                      description=f"Action By {after.author.display_name}",
                                       colour=discord.Colour.blurple(),
                                       timestamp=datetime.now())
-
+                
                 fields = [("Before", before.content, False),
                         ("After", after.content, False)]
                 for name, value, inline in fields:

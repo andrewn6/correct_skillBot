@@ -35,3 +35,5 @@
 
 ### Join our flutter server where the bot is implemented
 [![JOINSERVER](https://discord.com/api/guilds/742283065694617611/widget.png?style=banner4)](https://discord.gg/f5HjX9t)
+
+[![SERVERTEMPLATE](https://icon-library.com/images/discord-icon-template/discord-icon-template-15.jpg)](https://discord.new/fwyNTFBN4pF2)

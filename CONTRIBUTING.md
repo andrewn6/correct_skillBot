@@ -32,7 +32,7 @@ class ClassName(Cog):
         await ctx.send("error message")
     
     @Cog.listener()
-      #when bot is ready this is performed
+    #when bot is ready this is performed
     async def on_ready(self):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("filename")   #for example if the file name is fun.py then the cog name would be fun please insert the cog name here that is the file name without the extension
