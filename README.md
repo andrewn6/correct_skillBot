@@ -30,7 +30,7 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Shubhaankar-sharma/correct_skillBot)
 
 ## Deploy a server like mine with a template on discord for the bot
-[![SERVERTEMPLATE](https://discordapp.com/api/guilds/[SERVER ID]/widget.png?style=banner1)](https://discord.new/fwyNTFBN4pF2)
+[![SERVERTEMPLATE](https://discordapp.com/api/guilds/742283065694617611/widget.png?style=banner1)](https://discord.new/fwyNTFBN4pF2)
 
 #### After deploying go to manage app and turn on the python launcher worker dyno
 
