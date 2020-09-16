@@ -7,7 +7,7 @@
 
 ### To run this on your system you need to set the config.py file according to your need i have explained everything in it i am using env variables you can input directly if you like
 ### To get your Tenor key go to (https://tenor.com/developer/dashboard)
-
+### go to (https://discord.com/developers) to create an app an then get the bot token
 ## Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Shubhaankar-sharma/correct_skillBot)
 
