@@ -28,6 +28,10 @@
 
 ## Deploy to Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Shubhaankar-sharma/correct_skillBot)
+
+## Deploy a server template on discord for the bot
+[![SERVERTEMPLATE](https://www.freepnglogos.com/images/discord-logo-png-7622.html)](https://discord.new/fwyNTFBN4pF2)
+
 #### After deploying go to manage app and turn on the python launcher worker dyno
 
 #### There are some issues open please feel free to make a pr
@@ -35,5 +39,3 @@
 
 ### Join our flutter server where the bot is implemented
 [![JOINSERVER](https://discord.com/api/guilds/742283065694617611/widget.png?style=banner4)](https://discord.gg/f5HjX9t)
-
-[![SERVERTEMPLATE](https://icon-library.com/images/discord-icon-template/discord-icon-template-15.jpg)](https://discord.new/fwyNTFBN4pF2)
