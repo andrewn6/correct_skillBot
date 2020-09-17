@@ -5,7 +5,14 @@
 ### To use in your own server for testing or other purposes please fork the repo and clone it
 
 
-### To run this on your system you need to set the config.py file according to your need i have explained everything in it i am using env variables you can input directly if you like
+### To run this on your system follow these steps:
+#### Ensure you have python 3.8 on your venv, conda env or system
+#### *On the Terminal*
+#### 1)```pip install -r requirements.txt``` 
+#### 2)```python create-config.py```
+#### This should create your config.py file with all the variables required to run the bot 
+### **Please set these Variables according to you**
+
 ### To get your Tenor key go to (https://tenor.com/developer/dashboard)
 ### go to (https://discord.com/developers) to create an app an then get the bot token
 ## Deploy to Heroku

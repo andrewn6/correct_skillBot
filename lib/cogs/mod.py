@@ -17,17 +17,25 @@ class Mod(Cog):
     @command(name="kick")
     @bot_has_permissions(kick_members=True)
     @has_permissions(kick_members=True)
-    async def kick_members(self, ctx, targets : Greedy[MemberConverter], *, reason : Optional[str] = "no reason provied."):
+    async def kick_members(self, ctx, targets : Greedy[Member], *, reason : Optional[str] = "no reason provied."):
         if not len(targets):
             await ctx.send("One or more required arguments are missing")
         else:
             for target in targets:
-                await target.kick(reason=reason)
-                embed = discord.Embed(title=f"kicked {target.display_name} {reason}",
-                                       colour=discord.Color.blurple(),
-                                      timestamp=datetime.utcnow())
-                fields = [("Actioned By", ctx.author.display_name, False)]
-                await self.log_channel.send(embed=embed)
+    
+                if (ctx.guild.me.top_role.position > target.top_role.position 
+                    and not target.guild_permissions.administrator):
+    
+                    await target.kick(reason=reason)
+                    embed = discord.Embed(title=f"kicked {target.display_name} {reason}",
+                                        colour=discord.Color.blurple(),
+                                        timestamp=datetime.utcnow())
+                    fields = [("Actioned By", ctx.author.display_name, False)]
+                    await self.log_channel.send(embed=embed)
+                else:
+                    await ctx.send(f"{target.display_name} could not be kicked.")
+            await self.log_channel.send("Action completed.")
+    
     @kick_members.error
     async def kick_members_error(self, ctx, exc):
         if isinstance(exc, CheckFailure):
@@ -36,17 +44,27 @@ class Mod(Cog):
     @command(name="ban")
     @bot_has_permissions(ban_members=True)
     @has_permissions(ban_members=True)
-    async def ban_members(self, ctx, targets : Greedy[MemberConverter], *, reason : Optional[str] = "no reason provied."):
+    async def ban_members(self, ctx, targets : Greedy[Member], *, reason : Optional[str] = "no reason provied."):
         if not len(targets):
             await ctx.send("One or more required arguments are missing")
+    
         else:
+    
             for target in targets:
-                await target.ban(reason=reason)
-                embed = discord.Embed(title=f"banned {target.display_name} {reason}",
-                                       colour=discord.Color.blurple(),
-                                      timestamp=datetime.utcnow())
-                fields = [("Actioned By", ctx.author.display_name, False)]
-                await self.log_channel.send(embed=embed)
+    
+                if (ctx.guild.me.top_role.position > target.top_role.position 
+                    and not target.guild_permissions.administrator):
+    
+                    await target.ban(reason=reason)
+                    embed = discord.Embed(title=f"banned {target.display_name} {reason}",
+                                        colour=discord.Color.blurple(),
+                                        timestamp=datetime.utcnow())
+                    fields = [("Actioned By", ctx.author.display_name, False)]
+                    await self.log_channel.send(embed=embed)
+                else:
+                     await ctx.send(f"{target.display_name} could not be banned.")
+            await self.log_channel.send("Action completed.")
+   
     @ban_members.error
     async def ban_members_error(self, ctx, exc):
         if isinstance(exc, CheckFailure):
