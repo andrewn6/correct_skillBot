@@ -1,4 +1,5 @@
 from asyncio import sleep
+import asyncio
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime
 from discord.ext.commands import Bot as BotBase
@@ -18,6 +19,7 @@ os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
 os.environ["JISHAKU_HIDE"] = "True"
 COGS = ['jishaku']
+
 for file in os.listdir('./lib/cogs'):
     if file.endswith('.py'):
         COGS.append(file[:-3])

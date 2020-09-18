@@ -1,5 +1,3 @@
-import io
-
 config=(
 """import os
 
@@ -17,7 +15,7 @@ SERVER_RULES_MESSAGE_ID = int(os.environ["SERVER_RULES_MESSAGE_ID"]) #7531354676
 VERIFIED_ROLE_ID = int(os.environ["VERIFIED_ROLE_ID"]) #753133700455333958   #the role given to user after he/she clicks ✅ on the rules
 """
 )
-with io.open("config.py", "w",encoding="utf-8") as f:
+with open("config.py", "w",encoding="utf-8") as f:
     f.write(config)
 
 

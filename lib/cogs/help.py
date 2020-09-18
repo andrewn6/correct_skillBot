@@ -42,8 +42,8 @@ class HelpMenu(ListPageSource):
         fields = []
 
         for entry in entries:
-            if syntax(entry) != "```jishaku | jsk ```":
-               fields.append((entry.brief or "No Description.", syntax(entry)))
+
+            fields.append((entry.brief or "No Description.", syntax(entry)))
         
         return await self.write_page(menu, fields)
 
