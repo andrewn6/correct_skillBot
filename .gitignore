@@ -4,3 +4,5 @@ lib/bot/.env
 __pycache__
 config.py
 .idea/
+channelFeed.xml
+videos.json

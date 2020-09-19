@@ -108,7 +108,7 @@ class Youtube(Cog):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("youtube")
             #print("youtube cog ready")
-            #self._get_last_video.start() disabeled this
+            self._get_last_video.start()
 
 def setup(bot):
     bot.add_cog(Youtube(bot))
