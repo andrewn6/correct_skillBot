@@ -1,9 +1,12 @@
 from discord.ext.commands import Cog, BucketType
 from discord.ext.commands import command,cooldown
+from discord.ext.commands import check
+from discord.ext import commands
 from discord import Member
 from typing import Optional
 from discord.ext.commands import (CommandNotFound, BadArgument, MissingRequiredArgument)
 import os
+from discord.ext.commands import Bot
 import requests
 import json
 import random
@@ -48,6 +51,11 @@ class Fun(Cog):
     async def echo(self, ctx, *, message: str):
         await ctx.message.delete()
         await ctx.send(f"{message}")
+    
+    @command(name="owner")
+    @check(commands.is_owner())
+    async def owner(self, ctx):
+        await ctx.send("You are the owner")
 
     @Cog.listener()
     #when bot is ready this is performed

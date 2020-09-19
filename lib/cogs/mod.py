@@ -14,7 +14,7 @@ class Mod(Cog):
         self.bot = bot
         
     
-    @command(name="kick")
+    @command(name="kick",brief='kicks member')
     @bot_has_permissions(kick_members=True)
     @has_permissions(kick_members=True)
     async def kick_members(self, ctx, targets : Greedy[Member], *, reason : Optional[str] = "no reason provied."):
@@ -41,7 +41,7 @@ class Mod(Cog):
         if isinstance(exc, CheckFailure):
             await ctx.send("You dont have the permission to do this. -_-")
 
-    @command(name="ban")
+    @command(name="ban", brief="bans member")
     @bot_has_permissions(ban_members=True)
     @has_permissions(ban_members=True)
     async def ban_members(self, ctx, targets : Greedy[Member], *, reason : Optional[str] = "no reason provied."):

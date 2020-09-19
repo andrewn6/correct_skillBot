@@ -9,9 +9,9 @@ from glob import glob
 from discord.ext.commands.errors import *
 from discord.ext.commands import when_mentioned_or
 from ..db import db
-import os 
+import os
 from apscheduler.triggers.cron import CronTrigger
-from config import * 
+from config import *
 #Config (PREFIX, BOT_TOKEN, BOT_CHANNEL, OWNER_ID, GUILD_ID, SUGGESTION_CHANNEL_ID)
 
 OWNER_IDS = [OWNER_ID]
@@ -36,11 +36,11 @@ class Ready(object):
                 setattr(self, cog, True)
             else:
                 setattr(self, cog, False)
-    
+
     def ready_up(self, cog):
         setattr(self, cog, True)
         print(f" {cog} cog ready")
-    
+
     def all_ready(self):
         return all([getattr(self, cog) for cog in COGS])
 
@@ -53,7 +53,7 @@ class Bot(BotBase):
         self.scheduler = AsyncIOScheduler()
         db.autosave(self.scheduler)
         super().__init__(command_prefix=get_prefix, owner_ids=OWNER_IDS)
-    
+
     def setup(self):
         for cog in COGS:
             if cog == 'jishaku':
@@ -71,16 +71,16 @@ class Bot(BotBase):
         self.TOKEN = BOT_TOKEN
         print("running bot...")
         super().run(self.TOKEN,reconnect=True)
-    
+
     async def print_message(self):
         self.stdout.send(embed = discord.Embed(title = "Good Morning!",colour = discord.Colour.orange()))
 
     async def on_connect(self):
         print("Bot connected")
-    
+
     async def on_disconnect(self):
         print("bot disconnected")
-    
+
     async def on_error(self, err, *args, **kwargs,):
         if err == "on_command_error":
             await args[0].send("something went wrong")
@@ -94,19 +94,19 @@ class Bot(BotBase):
 
         if isinstance(exc,CommandNotFound):
             await ctx.send(embed = discord.Embed(title="Wrong Command", colour=discord.Colour.red()))
-        elif isinstance(exc, BadArgument):
-            pass
+        #elif isinstance(exc, BadArgument):
+            #pass
         elif isinstance(exc,CommandOnCooldown):
             await ctx.send(embed = discord.Embed(title=f"That command is on {str(exc.cooldown.type).split('.')[-1]} cooldown. Try again in {exc.retry_after:,.2f}", colour = discord.Colour.red()))
         elif isinstance(exc, MissingRequiredArgument):
             await ctx.send(embed=discord.Embed(title="One or two required arguments are missing", colour=discord.Colour.red()))
-        elif isinstance(error, CheckFailure):
-            return
+        #elif isinstance(error, CheckFailure):
+           # return
         elif isinstance(exc, TooManyArguments):
             await ctx.send(embed=discord.Embed(title="This command does not have this many arguments", colour=discord.Colour.red()))
         else:
-            raise exc.original
-    
+            raise exc
+
     async def on_ready(self):
         if not self.ready:
             self.guild = self.get_guild(GUILD_ID)
@@ -115,7 +115,7 @@ class Bot(BotBase):
             self.stdout = self.get_channel(BOT_CHANNEL)
             embed = discord.Embed(title = "Bot is Online", colour = discord.Colour.purple(),timestamp = datetime.utcnow())
             embed.set_author(name=self.guild.name,icon_url=self.guild.icon_url)
-           
+
             while not self.cogs_ready.all_ready():
                 await sleep(0.5)
             self.ready = True

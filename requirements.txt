@@ -1,11 +1,11 @@
-aiohttp==3.6.2
-APScheduler==3.6.3
-astroid==2.4.2
-astunparse==1.6.3
-async-timeout==3.0.1
-attrs==20.2.0
-braceexpand==0.1.5
-certifi==2020.6.20
+aiohttp
+APScheduler
+astroid
+astunparse
+async-timeout
+attrs
+braceexpand
+certifi
 chardet==3.0.4
 colorama==0.4.3
 discord-ext-menus @ git+https://github.com/Rapptz/discord-ext-menus@84caae8038d0d3adc860957ccef05baeec2e2dd8
