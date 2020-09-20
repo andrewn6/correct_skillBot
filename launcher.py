@@ -1,4 +1,3 @@
-from lib.bot import bot
 import os
 
 VERSION = "0.0.6"
@@ -8,5 +7,5 @@ try:
         os.system("python create-config.py")
 except:
     raise
-
+from lib.bot import bot
 bot.run(VERSION)
