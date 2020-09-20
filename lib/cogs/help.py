@@ -21,10 +21,11 @@ class HelpMenu(ListPageSource):
     def __init__(self, ctx, data):
         self.ctx = ctx
         
-        super().__init__(data, per_page=3)
+        super().__init__(data, per_page=5)
 
     async def write_page(self, menu, fields=[]):
         offset = (menu.current_page*self.per_page) + 1
+
         len_data = len(self.entries)
         
         embed = Embed(title="Help",
@@ -51,6 +52,7 @@ class Help(Cog):
     def __init__(self,bot):
         self.bot = bot
         self.bot.remove_command("help")
+        self.bot.remove_cog('jishaku')
     async def cmd_help(self, ctx, command):
         embed = Embed(title=f"Help with `{command}`",
                        description=syntax(command),
@@ -74,8 +76,8 @@ class Help(Cog):
                 await ctx.send("That command does not exist.")
     @Cog.listener()
     async def on_ready(self):
-        if not self.bot.ready:
-            self.bot.cogs_ready.ready_up("help")
-
+        #if not self.bot.ready:
+         #   self.bot.cogs_ready.ready_up("help")
+        pass
 def setup(bot):
     bot.add_cog(Help(bot))

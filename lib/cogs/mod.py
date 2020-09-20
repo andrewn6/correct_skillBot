@@ -70,6 +70,17 @@ class Mod(Cog):
         if isinstance(exc, CheckFailure):
             await ctx.send("You dont have the permission to do this. -_-")
 
+    @command(name="purge", aliases=["clear"], brief="deletes some amount of messages")
+    @bot_has_permissions(manage_messages=True)
+    @has_permissions(manage_messages=True)
+    async def clear_messages(self, ctx, limit:Optional[int] = 1):
+        if 0 < limit <= 100:
+            with ctx.channel.typing():
+                await ctx.message.delete()
+                deleted = await ctx.channel.purge(limit=limit)
+                await ctx.send(f"Deleted {len(deleted):,} messages.", delete_after=5)
+        else:
+            await ctx.send("These are too many messages to delete")
     @Cog.listener()
     async def on_ready(self):
         if not self.bot.ready:

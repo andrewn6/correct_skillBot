@@ -12,6 +12,8 @@ import json
 import random
 import discord
 from config import *
+
+
 class Fun(Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -51,11 +53,6 @@ class Fun(Cog):
     async def echo(self, ctx, *, message: str):
         await ctx.message.delete()
         await ctx.send(f"{message}")
-    
-    @command(name="owner")
-    @check(commands.is_owner())
-    async def owner(self, ctx):
-        await ctx.send("You are the owner")
 
     @Cog.listener()
     #when bot is ready this is performed
