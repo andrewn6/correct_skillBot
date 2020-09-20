@@ -39,7 +39,8 @@
         },
         "VERIFIED_ROLE_ID":{
           "description": "Id of verified role which is to be given after user agrees to server rules to gain access to the server"
-        }      
+        },
+        "HEROKU": "True"
       
     },
     "addons": [
