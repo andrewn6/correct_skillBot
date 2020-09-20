@@ -6,6 +6,6 @@ try:
         print("Creating config file")
         os.system("python create-config.py")
 except:
-    raise
+    pass
 from lib.bot import bot
 bot.run(VERSION)
