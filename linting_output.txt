@@ -347,6 +347,9 @@ lib\db\__init__.py:1:0: R0801: Similar lines in 2 files
     async def on_ready(self):
         if not self.bot.ready: (duplicate-code)
 
-------------------------------------------------------------------
-Your code has been rated at 1.63/10 (previous run: 1.63/10, +0.00)
-
+------------------------------------------------------------------
+
+Your code has been rated at 1.63/10 (previous run: 1.63/10, +0.00)
+
+
+
