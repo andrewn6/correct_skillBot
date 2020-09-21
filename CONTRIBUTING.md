@@ -42,3 +42,4 @@ def setup(bot):
     bot.add_cog(ClassName(bot))
 
 ```
+After adding code always run pylint in all the lib directory like this pylint ./lib and fix all the reviews
