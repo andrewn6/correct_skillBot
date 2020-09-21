@@ -118,6 +118,7 @@ class Bot(BotBase):
             embed.set_author(name=self.guild.name,icon_url=self.guild.icon_url)
 
             while not self.cogs_ready.all_ready():
+                #print("cog not ready")
                 await sleep(0.5)
             self.ready = True
             await self.stdout.send(embed = embed)

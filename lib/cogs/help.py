@@ -76,8 +76,8 @@ class Help(Cog):
                 await ctx.send("That command does not exist.")
     @Cog.listener()
     async def on_ready(self):
-        #if not self.bot.ready:
-         #   self.bot.cogs_ready.ready_up("help")
+        if not self.bot.ready:
+            self.bot.cogs_ready.ready_up("help")
         pass
 def setup(bot):
     bot.add_cog(Help(bot))
