@@ -5,7 +5,6 @@ from datetime import datetime
 from discord.ext.commands import Bot as BotBase
 import discord
 from glob import glob
-#from discord.ext.commands import (CommandNotFound, BadArgument, MissingRequiredArgument, CommandOnCooldown)
 from discord.ext.commands.errors import *
 from discord.ext.commands import when_mentioned_or
 from ..db import db
@@ -70,10 +69,15 @@ class Bot(BotBase):
 
         self.TOKEN = BOT_TOKEN
         print("running bot...")
-        super().run(self.TOKEN,reconnect=True)
+        super().run(
+                    self.TOKEN,
+                    reconnect=True
+                    )
 
     async def print_message(self):
-        self.stdout.send(embed = discord.Embed(title = "Good Morning!",colour = discord.Colour.orange()))
+        self.stdout.send(embed = discord.Embed(
+                                               title = "Good Morning!",
+                                               colour = discord.Colour.orange()))
 
     async def on_connect(self):
         print("Bot connected")
@@ -98,9 +102,14 @@ class Bot(BotBase):
             print(exc)
             #pass
         elif isinstance(exc,CommandOnCooldown):
-            await ctx.send(embed = discord.Embed(title=f"That command is on {str(exc.cooldown.type).split('.')[-1]} cooldown. Try again in {exc.retry_after:,.2f}", colour = discord.Colour.red()))
+            await ctx.send(
+                           embed = discord.Embed(title=f"That command is on {str(exc.cooldown.type).split('.')[-1]} cooldown. Try again in {exc.retry_after:,.2f}", 
+                                                 colour = discord.Colour.red()
+                                                 )
+                           )
         elif isinstance(exc, MissingRequiredArgument):
-            await ctx.send(embed=discord.Embed(title="One or two required arguments are missing", colour=discord.Colour.red()))
+            await ctx.send(embed=discord.Embed(title="One or two required arguments are missing", 
+                                               colour=discord.Colour.red()))
         elif isinstance(error, CheckFailure):
             return
         elif isinstance(exc, TooManyArguments):
