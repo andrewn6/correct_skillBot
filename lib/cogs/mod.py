@@ -2,13 +2,12 @@ import discord
 from discord import Member
 from typing import Optional
 from datetime import datetime
-from config import *
 from discord.ext.commands import (Cog, MemberConverter,
                                   command, has_permissions,
                                   bot_has_permissions,
                                   CheckFailure, Greedy)
-from ..db import db
-
+from ..db import db  # pylint: disable=E0401
+from config import STAFF_LOGS_CHANNEL_ID  # pylint: disable=E0401
 
 class Mod(Cog):
     def __init__(self, bot):
@@ -21,7 +20,7 @@ class Mod(Cog):
                            targets: Greedy[Member],
                            *,
                            reason: Optional[str] = "no reason provied."):
-        if not len(targets):
+        if not len(targets):  # pylint: disable=C1801
             await ctx.send("One or more required arguments are missing")
         else:
             for target in targets:

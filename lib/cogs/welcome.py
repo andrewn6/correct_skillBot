@@ -18,7 +18,7 @@ class Welcome(Cog):
     @Cog.listener()
     async def on_member_join(self, member):
         db.execute("INSERT INTO exp (UserId) VALUES (%s)", (member.id))
-        await self.bot.get_channel(WELCOME_CHANNEL_ID).send(f"Welcome to {member.guild.name} {member.mention} Please go to <#753130992717529140> and react to the message to send messages.")
+        await self.bot.get_channel(WELCOME_CHANNEL_ID).send(f"Welcome to {member.guild.name} {member.mention} Please go to <#{SERVER_RULES_CHANNEL_ID}> and react to the message to send messages.")
     
     @Cog.listener()
     async def on_raw_reaction_add(self, payload):

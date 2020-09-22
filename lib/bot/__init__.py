@@ -14,7 +14,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
 from config import (OWNER_ID, BOT_PREFIX, BOT_TOKEN,  # pylint: disable=E0401
                     GUILD_ID, BOT_CHANNEL, PROJECT_DISPLAY_CHANNEL_ID)
-from ..db import db  # pylint: disable=E0402
+from ..db import db  # pylint: disable=E0401
 
 
 OWNER_IDS = [OWNER_ID]
@@ -53,10 +53,10 @@ class Ready(object):  # pylint: disable=R0205
         return all([getattr(self, cog) for cog in COGS])
 
 
-class Bot(BotBase):  # pylint: disable=r0902
+class Bot(BotBase):  # pylint: disable=R0902
     """Discord bot class overwrite"""
     def __init__(self):
-        self.PREFIX = BOT_PREFIX
+        self.PREFIX = BOT_PREFIX  # pylint: disable=C0103
         self.ready = False
         self.guild = None
         self.cogs_ready = Ready()
@@ -75,11 +75,11 @@ class Bot(BotBase):  # pylint: disable=r0902
         print("setup complete")
 
     def run(self, version):  # pylint: disable=W0221
-        self.VERSION = version  # pylint: disable=W0201
+        self.VERSION = version  # pylint: disable=W0201, C0103
         print("running setup")
         self.setup()
 
-        self.TOKEN = BOT_TOKEN  # pylint: disable=W0201
+        self.TOKEN = BOT_TOKEN  # pylint: disable=W0201, C0103
         print("running bot...")
         super().run(
             self.TOKEN,
