@@ -158,7 +158,7 @@ class Bot(BotBase):  # pylint: disable=R0902
                 await sleep(0.5)
             self.ready = True
             await self.stdout.send(embed=embed)
-            await self.change_presence(activity=discord.Game("f.help"))
+            await self.change_presence(activity=discord.Game(f"{BOT_PREFIX}help"))
             print("Bot ready")
         else:
             print("Bot reconnected")
