@@ -14,6 +14,7 @@ WELCOME_CHANNEL_ID = int(os.environ["WELCOME_CHANNEL_ID"])  # 753130960266068058
 SERVER_RULES_MESSAGE_ID = int(os.environ["SERVER_RULES_MESSAGE_ID"])  # 753135467645501440 #msg id of a server rule msg which is to be reacted with ✅ to gain access to the server
 VERIFIED_ROLE_ID = int(os.environ["VERIFIED_ROLE_ID"])  # 753133700455333958   #the role given to user after he/she clicks ✅ on the rules
 SERVER_RULES_CHANNEL_ID = int(os.environ["SERVER_RULES_CHANNEL_ID"])  # 753130992717529140
+YOUTUBE_NOTIFICATIONS = os.environ["YOUTUBE_NOTIFICATIONS"]
 
 """
 )

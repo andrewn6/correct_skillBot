@@ -9,7 +9,7 @@ import discord
 from aiohttp import request
 from discord.ext import tasks
 from discord.ext.commands import Cog
-from config import BOT_CHANNEL  # pylint: disable=E0401
+from config import BOT_CHANNEL, YOUTUBE_NOTIFICATIONS  # pylint: disable=E0401
 
 
 def to_pages_by_lines(content: str, max_size: int):
@@ -26,6 +26,7 @@ def to_pages_by_lines(content: str, max_size: int):
 
 class Youtube(Cog):
     """Youtube cog class that looks for new videos"""
+
     def __init__(self, bot):
         self.bot = bot
 
@@ -92,7 +93,8 @@ class Youtube(Cog):
 
         else:
             print("new")
-            description = to_pages_by_lines(new_video["description"],max_size=500)[0].replace('*', '').strip()  # pylint: disable=C0301
+            description = to_pages_by_lines(new_video["description"], max_size=500)[0].replace('*',
+                                                                                               '').strip()  # pylint: disable=C0301
             embed = discord.Embed(title=new_video['title'],
                                   url=new_video['video_url'],
                                   description=description,
@@ -117,7 +119,9 @@ class Youtube(Cog):
         if not self.bot.ready:
             self.bot.cogs_ready.ready_up("youtube")
             # print("youtube cog ready")
-            self._get_last_video.start()  # pylint: disable=E1101
+            if YOUTUBE_NOTIFICATIONS == "True":
+                print("TRUE starting routine")
+                self._get_last_video.start()  # pylint: disable=E1101
 
 
 def setup(bot):
