@@ -64,7 +64,7 @@ class Help(Cog):
     def __init__(self, bot):
         self.bot = bot
         self.bot.remove_command("help")
-        self.bot.remove_cog('jishaku')
+        #self.bot.remove_cog('jishaku')
 
     async def cmd_help(self, ctx, command):  # pylint: disable=W0621
         """specific command help"""
