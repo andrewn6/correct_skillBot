@@ -20,7 +20,7 @@ from ..db import db  # pylint: disable=E0401
 OWNER_IDS = [OWNER_ID,601173582516584602,735376244656308274]
 os.environ["JISHAKU_NO_UNDERSCORE"] = "True"
 os.environ["JISHAKU_NO_DM_TRACEBACK"] = "True"
-os.environ["JISHAKU_HIDE"] = "True"
+#os.environ["JISHAKU_HIDE"] = "True"
 COGS = ['jishaku']
 
 for file in os.listdir('./lib/cogs'):
