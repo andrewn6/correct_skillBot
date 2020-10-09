@@ -105,6 +105,7 @@ class Bot(BotBase):  # pylint: disable=R0902
             await args[0].send("something went wrong")
 
         embed = discord.Embed(title="An error occured",
+                              description=str(err),
                               colour=discord.Colour.red(),
                               timestamp=datetime.utcnow())
         await self.stdout.send(embed=embed)
