@@ -27,7 +27,7 @@ class Log(Cog):
         if before.name != after.name:
             embed = discord.Embed(title="Member Update",
                                   description="Name changed",
-                                  colour=after.colour,
+                                  colour=discord.Colour.blurple(),
                                   timestamp=datetime.now())
             fields = [("Before", before.name, False),
                       ("After", after.name, False)]
@@ -39,7 +39,7 @@ class Log(Cog):
         elif before.avatar_url != after.avatar_url:
             embed = discord.Embed(title="Member Update",
                                   description="Avatar changed Below is the new one",
-                                  colour=after.avatar.colour,
+                                  colour=discord.Colour.blurple(),
                                   timestamp=datetime.now())
             embed.set_thumbnail(url=before.avatar_url)
             embed.set_image(url=after.avatar_url)
@@ -51,7 +51,7 @@ class Log(Cog):
         if before.display_name != after.display_name:
             embed = discord.Embed(title="Member Update",
                                   description="Nickname changed",
-                                  colour=after.colour,
+                                  colour=discord.Colour.blurple(),
                                   timestamp=datetime.now())
             fields = [("Before", before.display_name, False),
                       ("After", after.display_name, False)]
