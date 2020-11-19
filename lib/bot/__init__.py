@@ -62,7 +62,10 @@ class Bot(BotBase):  # pylint: disable=R0902
         self.cogs_ready = Ready()
         self.scheduler = AsyncIOScheduler()
         db.autosave(self.scheduler)
-        super().__init__(command_prefix=get_prefix, owner_ids=OWNER_IDS)
+        super().__init__(command_prefix=get_prefix, 
+                         owner_ids=OWNER_IDS,
+                         intents=kwargs.pop("intents", discord.Intents.all()),
+                         **kwargs)
 
     def setup(self):
         """To Set up the bot and load all the cogs called while bot starts"""
