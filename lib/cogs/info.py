@@ -54,7 +54,7 @@ class Info(Cog):
     async def serverinfo(self, ctx):
         """returns server info"""
         embed = discord.Embed(title="Server information",
-                              colour=ctx.guild.owner.colour,
+                              colour=discord.Colour.blurple(),
                               timestamp=datetime.utcnow())
 
         embed.set_thumbnail(url=ctx.guild.icon_url)
