@@ -55,7 +55,7 @@ class Ready(object):  # pylint: disable=R0205
 
 class Bot(BotBase):  # pylint: disable=R0902
     """Discord bot class overwrite"""
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.PREFIX = BOT_PREFIX  # pylint: disable=C0103
         self.ready = False
         self.guild = None
